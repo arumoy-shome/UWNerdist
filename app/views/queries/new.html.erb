@@ -1,0 +1,15 @@
+<h2>New</h2>
+
+<p>Term List</p>
+<ul>
+  <li>Current Term: <%= @terms[:data][:current_term] %></li>
+  <li>Previous Term: <%= @terms[:data][:previous_term] %></li>
+  <li>Next Term: <%= @terms[:data][:next_term] %></li>
+</ul>
+
+<%= form_for :query, url: queries_path do |f| %>
+  <%= f.label :term %><br>
+  <%= f.text_field :term %>
+
+  <%= f.submit %>
+<% end %>

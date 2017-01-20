@@ -1,0 +1,7 @@
+<h2>Results</h2>
+
+<ul>
+  <% @courses[:data].each do |course| %>
+    <li><%= course[:subject] %></li>
+  <% end %>
+</ul>
