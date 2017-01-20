@@ -2,6 +2,10 @@
 
 <ul>
   <% @courses[:data].each do |course| %>
-    <li><%= course[:subject] %></li>
+    <li>
+    <h3><%= course[:title] %></h3>
+    <h4><%= course[:subject] %></h4>
+    <h4><%= course[:catalog_number] %></h4>
+    </li>
   <% end %>
 </ul>
