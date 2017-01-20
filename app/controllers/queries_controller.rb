@@ -9,12 +9,30 @@ class QueriesController < ApplicationController
   end
 
   def create
-    @courses = to_json(get("terms/#{params[:query][:term]}/courses"))
+    response = to_json(get("terms/#{params[:query][:term]}/courses"))
 
-    render :results unless @courses[:data].empty?
+    if params[:query][:subject]
+      subjects = sanitize(params[:query][:subject].split(','))
+
+      @courses = response[:data].select do |course|
+        subjects.include?(course[:subject])
+      end
+    else
+        @courses = response
+    end
+
+    render :results unless @courses.empty?
   end
 
   private
+
+  def sanitize(dirty_list)
+    clean_list = []
+
+    dirty_list.each { |item| clean_list << item.strip.upcase }
+
+    clean_list
+  end
 
   def get(thread)
     HTTParty.get("#{BASE_URL}#{thread}#{KEY}", format: :plain)
