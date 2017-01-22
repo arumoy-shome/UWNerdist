@@ -7,7 +7,7 @@
   <li>Next Term: <%= @terms[:data][:next_term] %></li>
 </ul>
 
-<%= form_for :query, url: queries_path do |f| %>
+<%= form_for :query, url: queries_results_path, method: :get do |f| %>
   <%= f.label :term %><br>
   <%= f.text_field :term %>
 

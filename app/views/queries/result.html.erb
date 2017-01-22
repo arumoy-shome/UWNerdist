@@ -1,0 +1,11 @@
+<h2>Results</h2>
+
+<ul>
+  <% @courses.each do |course| %>
+    <li>
+    <h3><%= course[:title] %></h3>
+    <h4><%= course[:subject] %></h4>
+    <h4><%= course[:catalog_number] %></h4>
+    </li>
+  <% end %>
+</ul>

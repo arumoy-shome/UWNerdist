@@ -3,28 +3,31 @@ class QueriesController < ApplicationController
 
   BASE_URL = 'https://api.uwaterloo.ca/v2/'
   KEY = '.json?key=8ad66046399b0b52f5140393c5a488aa'
+  DAYS = { 1 => "M", 2 => "T", 3 => "W", 4 => "Th", 5 => "F" }
 
   def new
     @terms ||= to_json(get("terms/list"))
   end
 
-  def create
+  def result
     response = to_json(get("terms/#{params[:query][:term]}/courses"))
 
-    if params[:query][:subject]
-      subjects = sanitize(params[:query][:subject].split(','))
-
-      @courses = response[:data].select do |course|
-        subjects.include?(course[:subject])
-      end
-    else
-        @courses = response
-    end
-
-    render :results unless @courses.empty?
+    @courses = filtered_by_subject(response)
   end
 
   private
+
+  def is_today?(raw)
+    raw.scan(/[A-Z][^A-Z]*/).include?(DAYS(Time.now.wday))
+  end
+
+  def filtered_by_subject(response)
+    return response unless params[:query][:subject]
+
+    subjects = sanitize(params[:query][:subject].split(','))
+
+    response[:data].select{ |course| subjects.include?(course[:subject]) }
+  end
 
   def sanitize(dirty_list)
     clean_list = []
