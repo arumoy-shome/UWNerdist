@@ -13,9 +13,4 @@ class Request
   def get
     HTTParty.get("#{BASE_URL}#{thread}#{KEY}", format: :plain)
   end
-
-  def to_json
-    JSON.parse(response, symbolize_names: true)
-  end
-
 end
