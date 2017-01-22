@@ -1,12 +1,10 @@
 class QueriesController < ApplicationController
-  require 'httparty'
+  require 'request'
 
-  BASE_URL = 'https://api.uwaterloo.ca/v2/'
-  KEY = '.json?key=8ad66046399b0b52f5140393c5a488aa'
   DAYS = { 1 => "M", 2 => "T", 3 => "W", 4 => "Th", 5 => "F" }
 
   def new
-    @terms ||= to_json(get("terms/list"))
+    @terms ||= to_json(Request.new("terms/list").get)
   end
 
   def result
@@ -35,10 +33,6 @@ class QueriesController < ApplicationController
     dirty_list.each { |item| clean_list << item.strip.upcase }
 
     clean_list
-  end
-
-  def get(thread)
-    HTTParty.get("#{BASE_URL}#{thread}#{KEY}", format: :plain)
   end
 
   def to_json(response)
