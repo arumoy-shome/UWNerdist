@@ -1,39 +1,18 @@
 class QueriesController < ApplicationController
-  require 'request'
+  require 'uw_api/request'
+  require 'uw_api/filter'
 
-  DAYS = { 1 => "M", 2 => "T", 3 => "W", 4 => "Th", 5 => "F" }
 
   def new
-    @terms ||= to_json(Request.new("terms/list").get)
+    @terms ||= to_json(UwApi::Request.new("terms/list").get)
   end
 
   def result
-    response = to_json(get("terms/#{params[:query][:term]}/courses"))
-
-    @courses = filtered_by_subject(response)
+    response = to_json(UwApi::Request.new("terms/#{params[:query][:term]}/courses").get)
+    @courses = UwApi::Filter.new(response, subjects: params[:query][:subjects]).by_subject
   end
 
   private
-
-  def is_today?(raw)
-    raw.scan(/[A-Z][^A-Z]*/).include?(DAYS(Time.now.wday))
-  end
-
-  def filtered_by_subject(response)
-    return response unless params[:query][:subject]
-
-    subjects = sanitize(params[:query][:subject].split(','))
-
-    response[:data].select{ |course| subjects.include?(course[:subject]) }
-  end
-
-  def sanitize(dirty_list)
-    clean_list = []
-
-    dirty_list.each { |item| clean_list << item.strip.upcase }
-
-    clean_list
-  end
 
   def to_json(response)
     JSON.parse(response, symbolize_names: true)
