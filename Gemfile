@@ -19,6 +19,7 @@ gem 'httparty'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
 end
 
 group :development do
