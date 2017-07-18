@@ -7,7 +7,7 @@ class Request
 
   DAYS = { 1 => "M", 2 => "T", 3 => "W", 4 => "Th", 5 => "F" }
   BASE_URL = 'https://api.uwaterloo.ca/v2/'
-  KEY = '.json?key=8ad66046399b0b52f5140393c5a488aa'
+  KEY = ".json?key=#{ENV['KEY']}"
 
   def initialize(thread = nil, **args)
     @thread = thread

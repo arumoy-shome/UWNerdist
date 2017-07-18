@@ -50,6 +50,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     debug_inspector (0.0.2)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
@@ -159,6 +163,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
+  dotenv-rails (~> 2.2, >= 2.2.1)
   httparty
   jbuilder (~> 2.5)
   jquery-rails
