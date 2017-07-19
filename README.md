@@ -1,24 +1,40 @@
-# README
+# UWNerdist
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+UWNerdist let's fellow University of Waterloo students to checkout what classes
+are currently in progress or about to start on any given day.
+Whether you enjoy sitting in random classes and learning about new things or if
+you are simply work better in a lively environment, UWNerdist can help!
+The app is still under development, however here are a few features that I wish
+to include in the very first release:
 
-Things you may want to cover:
+* show classes that are about to begin or are going to end in 30 minutes or
+  more
+* cache frequent results: we can do this since the schedule for a given time of
+  day will be the same every week (hopefully this will turn out to be a good
+  opportunity to learn about [Redis](https://redis.io))
+* filter based on subject (great time to learn [elastic
+  search?](https://www.elastic.co/products/elasticsearch))
+* Fully tested and TDD powered codebase
+* filter out classes that are almost full
 
-* Ruby version
+A few things I hope to include in the upcoming releases:
 
-* System dependencies
+* save favourite classes
+* notifications before classes
+* look back at classes attended or look forward for upcoming classes in the
+  week,month or term
 
-* Configuration
+## Contributing ##
 
-* Database creation
+Thank you for showing interest in this project, I really hope this project turns
+out to be helpful to you in some form or the other! I would love to hear about
+ideas and suggestions that you may have and I would encourage you to check out
+the [Contributing guidelines](CONTRIBUTING.md) for this project.
 
-* Database initialization
+## Code of Conduct ##
 
-* How to run the test suite
+Please read the [Code of conduct](CODE_OF_CONDUCT.md) for this project
 
-* Services (job queues, cache servers, search engines, etc.)
+## License ##
 
-* Deployment instructions
-
-* ...
+UWNerdist is open sourced and free to use under the [MIT license](LICENSE.md).
