@@ -1,21 +1,21 @@
 # UWNerdist
 
-UWNerdist let's fellow University of Waterloo students to checkout what classes
+UWNerdist lets fellow University of Waterloo students checkout what classes
 are currently in progress or about to start on any given day.
 Whether you enjoy sitting in random classes and learning about new things or if
-you are simply work better in a lively environment, UWNerdist can help!
+you simply work better in a lively environment, UWNerdist can help!
 The app is still under development, however here are a few features that I wish
-to include in the very first release:
+to include in the first release:
 
 * show classes that are about to begin or are going to end in 30 minutes or
-  more
+  more relative to current time
+* filter out classes that are almost full
 * cache frequent results: we can do this since the schedule for a given time of
   day will be the same every week (hopefully this will turn out to be a good
   opportunity to learn about [Redis](https://redis.io))
 * filter based on subject (great time to learn [elastic
   search?](https://www.elastic.co/products/elasticsearch))
 * Fully tested and TDD powered codebase
-* filter out classes that are almost full
 
 A few things I hope to include in the upcoming releases:
 
