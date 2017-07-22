@@ -76,8 +76,8 @@ bundle install
 You are all done! You can fire up the rails console with `bin/rails console` or
 the server with `bin/rails server` to make sure everything is working. Read the
 [opening a pull request](#opening-a-pull-request) and [opening an
-issue](opening-an-issue) to learn how to get started with working on issues and
-feature requests.
+issue](#opening-an-issue) sections to learn how to get started with working on
+issues and feature requests.
 
 ## Opening a pull request ##
 
