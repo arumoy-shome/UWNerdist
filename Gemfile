@@ -18,6 +18,7 @@ gem 'httparty'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
+  gem 'webmock', '~> 3.0', '>= 3.0.1'
 end
 
 group :development do
