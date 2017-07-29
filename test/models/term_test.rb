@@ -7,6 +7,6 @@ class TermTest < ActiveSupport::TestCase
   end
 
   test "Term#current_term returns the current term" do
-    assert_equal "Fall 2017", Term.current_term
+    assert_equal "Fall 2017", Term.new.current_term
   end
 end
