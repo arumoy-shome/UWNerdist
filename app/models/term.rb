@@ -7,6 +7,8 @@ class Term
     term_name(current_term_id.to_s)
   end
 
+  private
+
   def term_name(id)
     term_name = "#{Time.current.year}"
 
