@@ -2,22 +2,26 @@ class Term
   include ApiHelper
 
   def id
-      @id ||= get('terms/list')[:data][:current_term]
+    @id ||= get('terms/list')[:data][:current_term]
+  end
+
+  def name
+    @name ||= id_to_name
   end
 
   private
 
-  def term_name(id)
-    term_name = "#{Time.current.year}"
+  def id_to_name
+    name = "#{Time.current.year}"
 
-    if /9$/.match?(id)
-      term_name.prepend('Fall ')
-    elsif /5$/.match?(id)
-      term_name.prepend('Spring ')
+    if /9$/.match?(id.to_s)
+      name.prepend('Fall ')
+    elsif /5$/.match?(id.to_s)
+      name.prepend('Spring ')
     else
-      term_name.prepend('Winter ')
+      name.prepend('Winter ')
     end
 
-    term_name
+    name
   end
 end

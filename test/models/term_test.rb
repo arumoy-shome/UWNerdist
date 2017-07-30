@@ -9,4 +9,8 @@ class TermTest < ActiveSupport::TestCase
   test '.id returns the current term id' do
     assert_equal 1139, Term.new.id
   end
+
+  test ".name returns the current term name" do
+    assert_equal 'Fall 2017', Term.new.name
+  end
 end
