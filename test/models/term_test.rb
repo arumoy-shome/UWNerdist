@@ -9,5 +9,10 @@ class TermTest < ActiveSupport::TestCase
     assert_difference 'Term.count' do
       Term.create
     end
+
+    record = Term.first
+
+    assert_equal 1139, record.id
+    assert_equal 'Fall 2017', record.description
   end
 end
