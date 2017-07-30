@@ -8,7 +8,7 @@ module ApiTestHelper
   end
 
   def stub_subject
-    stub_request(:get, "https://api.uwaterloo.ca/v2/terms/1139/courses.json?key=#{ENV['KEY']}").
+    stub_request(:get, "https://api.uwaterloo.ca/v2/codes/subjects.json?key=#{ENV['KEY']}").
       with(headers: stub_header ).
       to_return(status: 200, body: stub_subject_body, headers: {})
   end
@@ -37,34 +37,34 @@ module ApiTestHelper
     {
       'data': [
         {
-          'subject':'ACC',
-          'catalog_number':'652',
-          'units':0.5,
-          'title':'Forensic Accounting'
+          "subject":"AADMS",
+          "description":"Arts Administration Specialization Seminar",
+          "unit":"ARTSDEAN",
+          "group":"ART"
         },
         {
-          'subject':'ACC',
-          'catalog_number':'680',
-          'units':0.5,
-          'title':'Performance Measurement and Control systems for Implementing Strategy'
+          "subject":"AB",
+          "description":"Arabic (WLU)",
+          "unit":"VPA",
+          "group":"VPA"
         },
         {
-          'subject':'SYDE',
-          'catalog_number':'322',
-          'units':0.5,
-          'title':'Software Design'
+          "subject":"ACC",
+          "description":"Accounting",
+          "unit":"ACC",
+          "group":"ART"
         },
         {
-          'subject':'SCI',
-          'catalog_number':'255',
-          'units':0.5,
-          'title':'The Biology of Aging'
+          "subject":"ACINTY",
+          "description":"Academic Integrity",
+          "unit":"VPA",
+          "group":"VPA"
         },
         {
-          'subject':'ACINTY',
-          'catalog_number':'600',
-          'units':0,
-          'title':'Academic Integrity Module'
+          "subject":"ACTSC",
+          "description":"Actuarial Science",
+          "unit":"STATACTSC",
+          "group":"MAT"
         }
       ]
     }.to_json
