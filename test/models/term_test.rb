@@ -6,7 +6,11 @@ class TermTest < ActiveSupport::TestCase
     stub_term
   end
 
-  test "Term#current_term returns the current term" do
-    assert_equal "Fall 2017", Term.current_term
+  test '.id returns the current term id' do
+    assert_equal 1139, Term.new.id
+  end
+
+  test ".name returns the current term name" do
+    assert_equal 'Fall 2017', Term.new.name
   end
 end
