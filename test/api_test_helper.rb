@@ -3,7 +3,7 @@ require 'webmock/minitest'
 module ApiTestHelper
   def stub_term
     stub_request(:get, "https://api.uwaterloo.ca/v2/terms/list.json?key=#{ENV['KEY']}").
-      with(headers: stub_header ).
+      with(headers: stub_header).
       to_return(status: 200, body: stub_term_body, headers: {})
   end
 
@@ -28,7 +28,37 @@ module ApiTestHelper
       'data': {
         'current_term': 1139,
         'previous_term': 1135,
-        'next_term': 1141
+        'next_term': 1141,
+        "listings": {
+          "2012":[
+            {
+              "id":1121,
+              "name":"Winter 2012"
+            },
+            {
+              "id":1125,
+              "name":"Spring 2012"
+            },
+            {
+              "id":1129,
+              "name":"Fall 2012"
+            }
+          ],
+          "2017":[
+            {
+              "id":1131,
+              "name":"Winter 2013"
+            },
+            {
+              "id":1135,
+              "name":"Spring 2013"
+            },
+            {
+              "id":1139,
+              "name":"Fall 2017"
+            }
+          ]
+        }
       }
     }.to_json
   end

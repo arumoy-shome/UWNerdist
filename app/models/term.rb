@@ -1,27 +1,18 @@
-class Term
-  include ApiHelper
+class Term < ApplicationRecord
+  extend ApiHelper
 
-  def id
-    @id ||= get('terms/list')[:data][:current_term]
-  end
+  def self.create
+    res = get('terms/list')
+    id = res[:data][:current_term]
+    listings = res[:data][:listings][Time.current.year.to_s.to_sym]
+    description = ''
 
-  def name
-    @name ||= id_to_name
-  end
+    listings.each do |listing|
+      return unless description.empty?
 
-  private
-
-  def id_to_name
-    name = "#{Time.current.year}"
-
-    if /9$/.match?(id.to_s)
-      name.prepend('Fall ')
-    elsif /5$/.match?(id.to_s)
-      name.prepend('Spring ')
-    else
-      name.prepend('Winter ')
+      description = listing[:name] if listing[:id] == id
     end
 
-    name
+    super(id: id, description: description)
   end
 end
