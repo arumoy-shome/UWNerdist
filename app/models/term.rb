@@ -1,10 +1,8 @@
 class Term
   include ApiHelper
 
-  def current_term
-    current_term_id = get('terms/list')[:data][:current_term]
-
-    term_name(current_term_id.to_s)
+  def id
+      @id ||= get('terms/list')[:data][:current_term]
   end
 
   private
