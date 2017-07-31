@@ -72,6 +72,13 @@ gem install bundler
 bundle install
 ```
 
+**For Mac users. Errors occuring with installing gems follow the code below. # represents the gem causing the issue
+
+```gem uninstall #
+xcode-select --install
+gem install #
+```
+
 4. **Start coding!**
 You are all done! You can fire up the rails console with `bin/rails console` or
 the server with `bin/rails server` to make sure everything is working. Read the
