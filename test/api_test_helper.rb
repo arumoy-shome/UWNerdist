@@ -26,36 +26,22 @@ module ApiTestHelper
   def stub_term_body
     {
       'data': {
-        'current_term': 1139,
-        'previous_term': 1135,
-        'next_term': 1141,
+        'current_term': 1234,
+        'previous_term': 5678,
+        'next_term': 9101,
         "listings": {
-          "2012":[
-            {
-              "id":1121,
-              "name":"Winter 2012"
-            },
-            {
-              "id":1125,
-              "name":"Spring 2012"
-            },
-            {
-              "id":1129,
-              "name":"Fall 2012"
-            }
-          ],
           "2017":[
             {
-              "id":1131,
+              "id":1234,
               "name":"Winter 2013"
             },
             {
-              "id":1135,
+              "id":5678,
               "name":"Spring 2013"
             },
             {
-              "id":1139,
-              "name":"Fall 2017"
+              "id":9101,
+              "name":"Fall 2013"
             }
           ]
         }
