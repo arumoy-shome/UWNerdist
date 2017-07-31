@@ -5,14 +5,20 @@ class TermTest < ActiveSupport::TestCase
     stub_term
   end
 
-  test "#new creates a new record for the current term using the api" do
+  test "#create creates a new record for the current term using the api" do
     assert_difference 'Term.count' do
       Term.create
     end
 
-    record = Term.first
+    record = Term.last
 
-    assert_equal 1139, record.id
-    assert_equal 'Fall 2017', record.description
+    assert_equal 1234, record.id
+    assert_equal 'Winter 2013', record.description
+  end
+
+  test "#current returns the record for current term" do
+    Term.create
+
+    assert_equal 1234, Term.current.id
   end
 end
