@@ -1,6 +1,8 @@
 class Term < ApplicationRecord
   extend ApiHelper
 
+  has_and_belongs_to_many :subjects
+
   def self.create
     id = res[:current_term]
     listings = res[:listings][Time.current.year.to_s.to_sym]
