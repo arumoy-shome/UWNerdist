@@ -2,8 +2,8 @@ class Term < ApplicationRecord
   extend ApiHelper
 
   def self.create
-    id = res[:data][:current_term]
-    listings = res[:data][:listings][Time.current.year.to_s.to_sym]
+    id = res[:current_term]
+    listings = res[:listings][Time.current.year.to_s.to_sym]
     description = ''
 
     listings.each do |listing|
@@ -16,12 +16,12 @@ class Term < ApplicationRecord
   end
 
   def self.current
-    id = res[:data][:current_term]
+    id = res[:current_term]
     find(id)
   end
 
   def self.res
-    @@res ||= get('terms/list')
+    @@res ||= get('terms/list')[:data]
   end
 
   private_class_method :res
