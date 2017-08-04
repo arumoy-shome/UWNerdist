@@ -1,11 +1,8 @@
-one:
-  id: 1139
+fall:
   description: 'Fall 2017'
 
-two:
-  id: 1135
+spring:
   description: 'Spring 2017'
 
-three:
-  id: 1141
+winter:
   description: 'Winter 2018'
