@@ -10,7 +10,7 @@ class TermTest < ActiveSupport::TestCase
       Term.create
     end
 
-    record = Term.last
+    record = Term.find(1234)
 
     assert_equal 1234, record.id
     assert_equal 'Winter 2013', record.description
