@@ -33,15 +33,15 @@ module ApiTestHelper
           "2017":[
             {
               "id":1234,
-              "name":"Winter 2013"
+              "name":"Winter 2017"
             },
             {
               "id":5678,
-              "name":"Spring 2013"
+              "name":"Spring 2017"
             },
             {
               "id":9101,
-              "name":"Fall 2013"
+              "name":"Fall 2017"
             }
           ]
         }
