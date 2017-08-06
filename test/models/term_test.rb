@@ -1,12 +1,24 @@
 require 'test_helper'
-require 'json'
 
 class TermTest < ActiveSupport::TestCase
   def setup
     stub_term
   end
 
-  test "Term#current_term returns the current term" do
-    assert_equal "Fall 2017", Term.current_term
+  test "#create creates a new record for the current term using the api" do
+    assert_difference 'Term.count' do
+      Term.create
+    end
+
+    record = Term.last
+
+    assert_equal 1234, record.id
+    assert_equal 'Winter 2013', record.description
+  end
+
+  test "#current returns the record for current term" do
+    Term.create
+
+    assert_equal 1234, Term.current.id
   end
 end

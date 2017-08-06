@@ -1,9 +1,30 @@
-require 'api_helper'
+class Term < ApplicationRecord
+  extend ApiHelper
 
-class Term
-  def self.current_term
-    current_term_id = ApiHelper.get('terms/list')[:data][:current_term]
+  has_and_belongs_to_many :subjects
 
-    ApiHelper.term_name(current_term_id.to_s)
+  def self.create
+    id = res[:current_term]
+    listings = res[:listings][Time.current.year.to_s.to_sym]
+    description = ''
+
+    listings.each do |listing|
+      break unless description.empty?
+
+      description = listing[:name] if listing[:id] == id
+    end
+
+    super(id: id, description: description)
   end
+
+  def self.current
+    id = res[:current_term]
+    find(id)
+  end
+
+  def self.res
+    @@res ||= get('terms/list')[:data]
+  end
+
+  private_class_method :res
 end
