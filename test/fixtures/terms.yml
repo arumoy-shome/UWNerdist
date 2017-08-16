@@ -1,8 +1,11 @@
 fall:
   description: 'Fall 2017'
+  subjects: cs, sci
 
 spring:
+  id: 1234
   description: 'Spring 2017'
+  subjects: cs, syde, sci
 
 winter:
   description: 'Winter 2018'

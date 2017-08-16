@@ -19,4 +19,10 @@ class SubjectTest < ActiveSupport::TestCase
       Subject.update
     end
   end
+
+  test "#current_subjects returns a list of subjects offered in current term" do
+    stub_current_subjects
+
+    assert_equal ['CS', 'SCI', 'SYDE'], Subject.current_subjects
+  end
 end

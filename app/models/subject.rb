@@ -11,4 +11,11 @@ class Subject < ApplicationRecord
       find_or_create_by(code: subject[:subject], description: subject[:description])
     end
   end
+
+  def self.current_subjects
+    courses = get("terms/#{Term.current.id}/courses")[:data]
+    subject_codes = courses.map { |course| course[:subject] }.uniq
+
+    where(code: subject_codes).map(&:code)
+  end
 end

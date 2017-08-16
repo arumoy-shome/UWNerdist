@@ -13,6 +13,12 @@ module ApiTestHelper
       to_return(status: 200, body: stub_subject_body, headers: {})
   end
 
+  def stub_current_subjects
+    stub_request(:get, "https://api.uwaterloo.ca/v2/terms/#{Term.current.id}/courses.json?key=#{ENV['KEY']}").
+      with(headers: {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent'=>'Ruby'}).
+      to_return(status: 200, body: stub_current_subjects_body, headers: {})
+  end
+
   private
 
   def stub_header
@@ -83,6 +89,42 @@ module ApiTestHelper
           "group":"MAT"
         }
       ]
+    }.to_json
+  end
+
+  def stub_current_subjects_body
+    {
+      "data":[
+        {
+          "subject":"CS",
+          "catalog_number":"115",
+          "units":0.5,
+          "title":"Programming Racket"
+        },
+        {
+          "subject":"ACC",
+          "catalog_number":"611",
+          "units":0.5,
+          "title":"External Reporting"
+        },
+        {
+          "subject":"SYDE",
+          "catalog_number":"321",
+          "units":0.5,
+          "title":"Software Design"
+        },
+        {
+          "subject":"ACC",
+          "catalog_number":"622",
+          "units":0.5,
+          "title":"Electronic Commerce"
+        },
+        {
+          "subject":"SCI",
+          "catalog_number":"650",
+          "units":0.5,
+          "title":"Cellular Biology"
+        }]
     }.to_json
   end
 end
