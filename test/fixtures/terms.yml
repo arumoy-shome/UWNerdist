@@ -1,11 +1,11 @@
-one:
-  id: 1139
+fall:
   description: 'Fall 2017'
+  subjects: cs, sci
 
-two:
-  id: 1135
+spring:
+  id: 1234
   description: 'Spring 2017'
+  subjects: cs, syde, sci
 
-three:
-  id: 1141
+winter:
   description: 'Winter 2018'

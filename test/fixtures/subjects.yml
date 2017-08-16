@@ -1,0 +1,12 @@
+cs:
+  code: 'CS'
+  description: 'Computer Science'
+
+syde:
+  code: 'SYDE'
+  description: 'Systems Design Engineering'
+  terms: fall, spring
+
+sci:
+  code: 'SCI'
+  description: 'Science'
